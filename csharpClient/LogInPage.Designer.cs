@@ -85,6 +85,7 @@ namespace csharpClient
             this.readerBox.Name = "readerBox";
             this.readerBox.Size = new System.Drawing.Size(278, 56);
             this.readerBox.TabIndex = 7;
+            this.readerBox.Visible = false;
             // 
             // ipBox
             // 
@@ -175,6 +176,8 @@ namespace csharpClient
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.logInButton);
+            this.MaximumSize = new System.Drawing.Size(320, 320);
+            this.MinimumSize = new System.Drawing.Size(320, 320);
             this.Name = "LogInPage";
             this.Text = "Log in";
             this.ResumeLayout(false);

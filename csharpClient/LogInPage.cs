@@ -75,6 +75,9 @@ namespace csharpClient
                 {
                     con.getMessage();
                     socketConnect = true;
+                    ipBox.Enabled = false;
+                    portBox.Enabled = false;
+                    ServerConnectButton.Enabled = false;
                 }
             }
             else

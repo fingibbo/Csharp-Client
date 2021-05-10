@@ -53,6 +53,7 @@ namespace csharpClient
             this.exitButton.TabIndex = 1;
             this.exitButton.Text = "log out";
             this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // messageBox
             // 

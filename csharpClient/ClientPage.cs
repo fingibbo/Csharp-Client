@@ -23,5 +23,13 @@ namespace csharpClient
         {
             con.sendMessage("M" + messageBox.Text);
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            con.endConnection();
+            LogInPage form = new LogInPage();
+            this.Close();
+            form.Show();
+        }
     }
 }

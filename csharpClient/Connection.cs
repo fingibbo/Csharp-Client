@@ -31,9 +31,17 @@ namespace csharpClient
             return true;
         }
 
+
         public bool isRunning()
         {
             return running;
+        }
+
+        public void endConnection()
+        {
+            running = false;
+            pingTimer.Stop();
+            clientSocket.Close();
         }
 
         public void sendMessage(string toSend)
