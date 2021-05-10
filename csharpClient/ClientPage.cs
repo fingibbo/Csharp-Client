@@ -17,12 +17,17 @@ namespace csharpClient
         public ClientPage()
         {
             InitializeComponent();
+            con.sendMessage("UGL");
+            //messageBox.Items.Add(con.getMessage());
+
+
         }
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            con.sendMessage("M" + messageBox.Text);
+            con.sendMessage("M" + senderBox.Text);
         }
+
 
         private void exitButton_Click(object sender, EventArgs e)
         {

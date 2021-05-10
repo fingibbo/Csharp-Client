@@ -23,7 +23,6 @@ namespace csharpClient
                 con.sendMessage("U" + usernameTextBox.Text);
                 con.sendMessage("P" + passwordTextBox.Text);
                 int response = Int32.Parse(con.getMessage());
-                readerBox.Items.Add(response);
                 if (response == 0)
                 {
                     errorLabel.Text = "Username or Password is incorrect.";

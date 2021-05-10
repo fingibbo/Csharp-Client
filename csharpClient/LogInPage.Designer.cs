@@ -152,7 +152,7 @@ namespace csharpClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 281);
+            this.ClientSize = new System.Drawing.Size(304, 231);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.portLabel);
             this.Controls.Add(this.ipLabel);
@@ -165,8 +165,8 @@ namespace csharpClient
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.logInButton);
-            this.MaximumSize = new System.Drawing.Size(320, 320);
-            this.MinimumSize = new System.Drawing.Size(320, 320);
+            this.MaximumSize = new System.Drawing.Size(320, 270);
+            this.MinimumSize = new System.Drawing.Size(320, 270);
             this.Name = "LogInPage";
             this.Text = "Log in";
             this.ResumeLayout(false);

@@ -31,8 +31,8 @@ namespace csharpClient
         {
             this.sendButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.messageBox = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.senderBox = new System.Windows.Forms.TextBox();
+            this.messageBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // sendButton
@@ -55,29 +55,29 @@ namespace csharpClient
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // senderBox
+            // 
+            this.senderBox.Location = new System.Drawing.Point(13, 648);
+            this.senderBox.Name = "senderBox";
+            this.senderBox.Size = new System.Drawing.Size(914, 20);
+            this.senderBox.TabIndex = 2;
+            this.senderBox.Text = "Type here...";
+            // 
             // messageBox
             // 
-            this.messageBox.Location = new System.Drawing.Point(13, 648);
+            this.messageBox.FormattingEnabled = true;
+            this.messageBox.Location = new System.Drawing.Point(13, 13);
             this.messageBox.Name = "messageBox";
-            this.messageBox.Size = new System.Drawing.Size(914, 20);
-            this.messageBox.TabIndex = 2;
-            this.messageBox.Text = "Type here...";
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 13);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(995, 615);
-            this.listBox1.TabIndex = 3;
+            this.messageBox.Size = new System.Drawing.Size(995, 615);
+            this.messageBox.TabIndex = 3;
             // 
             // ClientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.messageBox);
+            this.Controls.Add(this.senderBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.sendButton);
             this.Name = "ClientPage";
@@ -91,7 +91,7 @@ namespace csharpClient
 
         private System.Windows.Forms.Button sendButton;
         private System.Windows.Forms.Button exitButton;
-        private System.Windows.Forms.TextBox messageBox;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox senderBox;
+        private System.Windows.Forms.ListBox messageBox;
     }
 }
