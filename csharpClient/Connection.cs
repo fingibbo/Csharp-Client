@@ -16,7 +16,7 @@ namespace csharpClient {
 
     class Connection
     {
-        public static Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);;
+        public static Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public static IPEndPoint serverAddress;
         private static System.Timers.Timer pingTimer = new System.Timers.Timer(1000);
         public bool running = false;
