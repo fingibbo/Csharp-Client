@@ -39,11 +39,11 @@ namespace csharpClient
             clientSocket.Send(toSendBytes);
         }
         
-        public void msgReceiver()
+        public string msgReceiver()
         {
             if (socketConnect == false)
             {
-
+                return "badLog";
             }
             else
             {
@@ -55,6 +55,7 @@ namespace csharpClient
                 String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
                 readerBox.Items.Add(rcv);
                 this.Refresh();
+                return rcv;
             }
         }
         private void SetupPing()
@@ -79,6 +80,7 @@ namespace csharpClient
                 msgSender("U" + usernameTextBox.Text);
                 msgSender("P" + passwordTextBox.Text);
                 msgReceiver();
+
             }
             else
             {
@@ -125,6 +127,7 @@ namespace csharpClient
                     msgReceiver();
                     socketConnect = true;
                     SetupPing();
+                    msgReceiver();
                 }
             }
             else
