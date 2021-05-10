@@ -19,7 +19,7 @@ namespace csharpClient
         static string ipAdd;
         static int port;
         Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port); //"86.6.1.8"
+        IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port); //"86.6.1.8";
         bool socketConnect = false;
         private static System.Timers.Timer pingTimer;
 
@@ -100,30 +100,30 @@ namespace csharpClient
         {
             if (socketConnect == false)
             {
+                bool success = true;
                 try
                 {
                     port = Int32.Parse(portBox.Text);
+                    clientSocket.Connect(serverAddress);
                 }
                 catch (FormatException)
                 {
+                    success = false;
                     errorLabel.Text = "port is causing an error";
-                }
-                if (socketConnect == false)
-                {
-                }
-                try
-                {
-                    clientSocket.Connect(serverAddress);
                 }
                 catch (SocketException)
                 {
+                    success = false;
                     errorLabel.Text = "IP or Port is incorrect";
                 }
-                msgReceiver();
-                socketConnect = true;
+                if (success)
+                {
+                    msgReceiver();
+                    socketConnect = true;
+                }
             }
-            else 
-            { 
+            else
+            {
 
             }
 
