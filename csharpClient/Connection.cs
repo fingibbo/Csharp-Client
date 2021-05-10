@@ -16,16 +16,16 @@ namespace csharpClient {
 
     class Connection
     {
-        public static Socket clientSocket;
+        public static Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);;
         public static IPEndPoint serverAddress;
-        private static System.Timers.Timer pingTimer;
+        private static System.Timers.Timer pingTimer = new System.Timers.Timer(1000);
         public bool running = false;
 
         public bool createConnection(String ip, int port)
         {
             serverAddress = new IPEndPoint(IPAddress.Parse(ip), port);
             clientSocket.Connect(serverAddress);
-            pingTimer.Elapsed += new ElapsedEventHandler(1000);
+            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
             pingTimer.Start();
             running = true;
             return true;
