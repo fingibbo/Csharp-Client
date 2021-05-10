@@ -22,13 +22,13 @@ namespace csharpClient
             {
                 con.sendMessage("U" + usernameTextBox.Text);
                 con.sendMessage("P" + passwordTextBox.Text);
-                string response = con.getMessage();
+                int response = Int32.Parse(con.getMessage());
                 readerBox.Items.Add(response);
-                if (response.Equals("badLog"))
+                if (response == 0)
                 {
                     errorLabel.Text = "Username or Password is incorrect.";
                 }
-                else if(response.Equals("goodLog"))
+                else if(response == 1)
                 {
                     ClientPage form = new ClientPage();
                     this.Hide();

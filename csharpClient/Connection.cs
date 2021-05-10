@@ -53,7 +53,7 @@ namespace csharpClient
             byte[] rcvBytes = new byte[rcvLen];
             clientSocket.Receive(rcvBytes);
             String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
-            return rcv;
+            return rcv.Normalize();
         }
 
         private void doPing(object source, ElapsedEventArgs e)
