@@ -18,58 +18,15 @@ namespace csharpClient
     {
         static string ipAdd;
         static int port;
-        Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        IPEndPoint serverAddress; //"86.6.1.8";
         bool socketConnect = false;
-        private static System.Timers.Timer pingTimer;
+        Connection con = new Connection();
 
         public LogInPage()
         {
             InitializeComponent();
+        }
 
-
-        }
-        public void msgSender(string toSend)
-        {
-
-            int toSendLen = System.Text.Encoding.ASCII.GetByteCount(toSend);
-            byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(toSend);
-            byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
-            clientSocket.Send(toSendLenBytes);
-            clientSocket.Send(toSendBytes);
-        }
-        
-        public string msgReceiver()
-        {
-            if (socketConnect == false)
-            {
-                return "badLog";
-            }
-            else
-            {
-                byte[] rcvLenBytes = new byte[4];
-                clientSocket.Receive(rcvLenBytes);
-                int rcvLen = System.BitConverter.ToInt32(rcvLenBytes, 0);
-                byte[] rcvBytes = new byte[rcvLen];
-                clientSocket.Receive(rcvBytes);
-                String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
-                readerBox.Items.Add(rcv);
-                this.Refresh();
-                return rcv;
-            }
-        }
-        private void SetupPing()
-        {
-            double interval = 300.0;
-            pingTimer = new System.Timers.Timer(interval);
-            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
-            pingTimer.Start();
-
-        }
-        private void doPing(object source, ElapsedEventArgs e)
-        {
-            msgSender("hh");
-        }
+    
 
 
 
@@ -77,9 +34,9 @@ namespace csharpClient
         {
             if(socketConnect == true)
             {
-                msgSender("U" + usernameTextBox.Text);
-                msgSender("P" + passwordTextBox.Text);
-                msgReceiver();
+                con.sendMessage("U" + usernameTextBox.Text);
+                con.sendMessage("P" + passwordTextBox.Text);
+                con.getMessage();
 
             }
             else
@@ -109,8 +66,7 @@ namespace csharpClient
                 {
                     ipAdd = ipBox.Text;
                     port = Int32.Parse(portBox.Text);
-                    serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port);
-                    clientSocket.Connect(serverAddress);
+                    con.createConnection(ipAdd, port);
                 }
                 catch (FormatException)
                 {
@@ -124,10 +80,8 @@ namespace csharpClient
                 }
                 if (success)
                 {
-                    msgReceiver();
+                    con.getMessage();
                     socketConnect = true;
-                    SetupPing();
-                    msgReceiver();
                 }
             }
             else

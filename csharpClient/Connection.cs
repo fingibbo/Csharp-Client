@@ -12,10 +12,62 @@ using System.Net;
 using System.Net.Sockets;
 using System.Timers;
 
-namespace csharpClient
-{
+namespace csharpClient { 
+
     class Connection
     {
+        public static Socket clientSocket;
+        public static IPEndPoint serverAddress;
+        private static System.Timers.Timer pingTimer;
+        public bool running = false;
+
+        public bool createConnection(String ip, int port)
+        {
+            serverAddress = new IPEndPoint(IPAddress.Parse(ip), port);
+            clientSocket.Connect(serverAddress);
+            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
+            pingTimer.Start();
+            running = true;
+            return true;
+        }
+
+        public bool isRunning()
+        {
+            return running;
+        }
+
+        public void sendMessage(string toSend)
+        {
+            int toSendLen = System.Text.Encoding.ASCII.GetByteCount(toSend);
+            byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(toSend);
+            byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
+            clientSocket.Send(toSendLenBytes);
+            clientSocket.Send(toSendBytes);
+        }
+
+        public string getMessage()
+        {
+            byte[] rcvLenBytes = new byte[4];
+            clientSocket.Receive(rcvLenBytes);
+            int rcvLen = System.BitConverter.ToInt32(rcvLenBytes, 0);
+            byte[] rcvBytes = new byte[rcvLen];
+            clientSocket.Receive(rcvBytes);
+            String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
+            return rcv;
+        }
+
+        private void SetupPing()
+        {
+            double interval = 300.0;
+            pingTimer = new System.Timers.Timer(interval);
+            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
+            pingTimer.Start();
+
+        }
+        private void doPing(object source, ElapsedEventArgs e)
+        {
+            sendMessage("hh");
+        }
 
     }
 }
