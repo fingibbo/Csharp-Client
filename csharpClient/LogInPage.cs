@@ -19,7 +19,7 @@ namespace csharpClient
         static string ipAdd;
         static int port;
         Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port); //"86.6.1.8";
+        IPEndPoint serverAddress; //"86.6.1.8";
         bool socketConnect = false;
         private static System.Timers.Timer pingTimer;
 
@@ -103,6 +103,7 @@ namespace csharpClient
                 bool success = true;
                 try
                 {
+                    serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port)
                     port = Int32.Parse(portBox.Text);
                     clientSocket.Connect(serverAddress);
                 }
