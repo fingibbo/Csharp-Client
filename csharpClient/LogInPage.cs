@@ -18,7 +18,7 @@ namespace csharpClient
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-            if(socketConnect == true)
+            if (socketConnect == true)
             {
                 con.sendMessage("U" + usernameTextBox.Text);
                 con.sendMessage("P" + passwordTextBox.Text);
@@ -28,9 +28,11 @@ namespace csharpClient
             {
                 errorLabel.Text = "Not connected to server";
             }
-            /*ClientPage objClientPAge = new ClientPage();
+            /*
+            ClientPage form = new ClientPage(); 
             this.Hide();
-            ClientPage.Show(); */
+            form.Show()
+            */
         }
 
         private void exitButton_Click(object sender, EventArgs e)

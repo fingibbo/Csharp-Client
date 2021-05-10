@@ -11,7 +11,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Timers;
 
-namespace csharpClient { 
+namespace csharpClient
+{
 
     class Connection
     {
