@@ -103,7 +103,7 @@ namespace csharpClient
                 bool success = true;
                 try
                 {
-                    serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port)
+                    serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port);
                     port = Int32.Parse(portBox.Text);
                     clientSocket.Connect(serverAddress);
                 }
