@@ -54,6 +54,7 @@ namespace csharpClient
                 clientSocket.Receive(rcvBytes);
                 String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
                 readerBox.Items.Add(rcv);
+                this.Refresh();
             }
         }
         private void SetupPing()
@@ -103,8 +104,9 @@ namespace csharpClient
                 bool success = true;
                 try
                 {
-                    serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port);
+                    ipAdd = ipBox.Text;
                     port = Int32.Parse(portBox.Text);
+                    serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port);
                     clientSocket.Connect(serverAddress);
                 }
                 catch (FormatException)
