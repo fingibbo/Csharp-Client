@@ -43,6 +43,7 @@ namespace csharpClient
             this.sendButton.TabIndex = 0;
             this.sendButton.Text = "send";
             this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // exitButton
             // 

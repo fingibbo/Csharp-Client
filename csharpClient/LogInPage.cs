@@ -10,14 +10,16 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Timers;
 
 namespace csharpClient
 {
     public partial class LogInPage : Form
     {
         Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 1986); //"86.6.1.8"
+        IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse("86.6.1.8"), 420); //"86.6.1.8"
         bool socketConnect = false;
+        private static System.Timers.Timer pingTimer;
 
         public LogInPage()
         {
@@ -27,22 +29,23 @@ namespace csharpClient
         }
         public void msgSender(string toSend)
         {
+
             int toSendLen = System.Text.Encoding.ASCII.GetByteCount(toSend);
             byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(toSend);
             byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
+            receiverLabel.Text = toSend;
             clientSocket.Send(toSendLenBytes);
             clientSocket.Send(toSendBytes);
         }
         
         public void msgReceiver()
         {
-            if (socketConnect = false)
+            if (socketConnect == false)
             {
 
             }
             else
             {
-
                 byte[] rcvLenBytes = new byte[4];
                 clientSocket.Receive(rcvLenBytes);
                 int rcvLen = System.BitConverter.ToInt32(rcvLenBytes, 0);
@@ -52,7 +55,18 @@ namespace csharpClient
                 receiverLabel.Text = rcv;
             }
         }
-        
+        private void SetupPing()
+        {
+            double interval = 100.0;
+            pingTimer = new System.Timers.Timer(interval);
+            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
+
+        }
+        private void doPing(object source, ElapsedEventArgs e)
+        {
+            msgSender("");
+        }
+
 
 
         private void logInButton_Click(object sender, EventArgs e)
@@ -63,6 +77,7 @@ namespace csharpClient
                 msgSender("U" + usernameTextBox.Text);
                 msgSender("P" + passwordTextBox.Text);
                 socketConnect = true;
+                
             }
             else
             {
