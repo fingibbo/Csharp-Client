@@ -22,17 +22,23 @@ namespace csharpClient
             {
                 con.sendMessage("U" + usernameTextBox.Text);
                 con.sendMessage("P" + passwordTextBox.Text);
-                con.getMessage();
+                string response = con.getMessage();
+                readerBox.Items.Add(response);
+                if (response.Equals("badLog"))
+                {
+                    errorLabel.Text = "Username or Password is incorrect.";
+                }
+                else if(response.Equals("goodLog"))
+                {
+                    ClientPage form = new ClientPage();
+                    this.Hide();
+                    form.Show();
+                }
             }
             else
             {
                 errorLabel.Text = "Not connected to server";
             }
-            /*
-            ClientPage form = new ClientPage(); 
-            this.Hide();
-            form.Show()
-            */
         }
 
         private void exitButton_Click(object sender, EventArgs e)
