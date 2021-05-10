@@ -92,6 +92,7 @@ namespace csharpClient
             this.ipBox.Name = "ipBox";
             this.ipBox.Size = new System.Drawing.Size(192, 20);
             this.ipBox.TabIndex = 8;
+            this.ipBox.Text = "86.6.1.8";
             // 
             // portBox
             // 
@@ -99,6 +100,7 @@ namespace csharpClient
             this.portBox.Name = "portBox";
             this.portBox.Size = new System.Drawing.Size(74, 20);
             this.portBox.TabIndex = 9;
+            this.portBox.Text = "420";
             // 
             // ServerConnectButton
             // 

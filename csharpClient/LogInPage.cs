@@ -59,14 +59,15 @@ namespace csharpClient
         }
         private void SetupPing()
         {
-            double interval = 100.0;
+            double interval = 300.0;
             pingTimer = new System.Timers.Timer(interval);
             pingTimer.Elapsed += new ElapsedEventHandler(doPing);
+            pingTimer.Start();
 
         }
         private void doPing(object source, ElapsedEventArgs e)
         {
-            msgSender("");
+            msgSender("hh");
         }
 
 
@@ -123,6 +124,7 @@ namespace csharpClient
                 {
                     msgReceiver();
                     socketConnect = true;
+                    SetupPing();
                 }
             }
             else
