@@ -33,7 +33,7 @@ namespace csharpClient
             this.exitButton = new System.Windows.Forms.Button();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.receiveListBox = new System.Windows.Forms.ListBox();
+            this.receiverLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // logInButton
@@ -70,26 +70,27 @@ namespace csharpClient
             this.passwordTextBox.Size = new System.Drawing.Size(273, 20);
             this.passwordTextBox.TabIndex = 6;
             // 
-            // receiveListBox
+            // receiverLabel
             // 
-            this.receiveListBox.FormattingEnabled = true;
-            this.receiveListBox.Location = new System.Drawing.Point(17, 174);
-            this.receiveListBox.Name = "receiveListBox";
-            this.receiveListBox.Size = new System.Drawing.Size(120, 95);
-            this.receiveListBox.TabIndex = 7;
+            this.receiverLabel.AutoSize = true;
+            this.receiverLabel.Location = new System.Drawing.Point(17, 169);
+            this.receiverLabel.Name = "receiverLabel";
+            this.receiverLabel.Size = new System.Drawing.Size(35, 13);
+            this.receiverLabel.TabIndex = 7;
+            this.receiverLabel.Text = "label1";
             // 
             // LogInPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 281);
-            this.Controls.Add(this.receiveListBox);
+            this.Controls.Add(this.receiverLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.logInButton);
             this.Name = "LogInPage";
-            this.Text = "Form1";
+            this.Text = "Log in";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,7 +101,7 @@ namespace csharpClient
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.ListBox receiveListBox;
+        private System.Windows.Forms.Label receiverLabel;
     }
 }
 
