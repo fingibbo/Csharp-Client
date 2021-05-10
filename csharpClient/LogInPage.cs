@@ -26,10 +26,6 @@ namespace csharpClient
             InitializeComponent();
         }
 
-    
-
-
-
         private void logInButton_Click(object sender, EventArgs e)
         {
             if(socketConnect == true)
@@ -37,15 +33,11 @@ namespace csharpClient
                 con.sendMessage("U" + usernameTextBox.Text);
                 con.sendMessage("P" + passwordTextBox.Text);
                 con.getMessage();
-
             }
             else
             {
                 errorLabel.Text = "Not connected to server";
             }
-
-
-
         }
 
         private void exitButton_Click(object sender, EventArgs e)

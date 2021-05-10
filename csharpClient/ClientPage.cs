@@ -12,6 +12,8 @@ namespace csharpClient
 {
     public partial class ClientPage : Form
     {
+        Connection con = new Connection();
+
         public ClientPage()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace csharpClient
 
         private void sendButton_Click(object sender, EventArgs e)
         {
-            msgSender("M" + messageBox.Text);
+            con.sendMessage("M" + messageBox.Text);
         }
     }
 }
