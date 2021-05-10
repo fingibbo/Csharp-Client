@@ -25,7 +25,7 @@ namespace csharpClient {
         {
             serverAddress = new IPEndPoint(IPAddress.Parse(ip), port);
             clientSocket.Connect(serverAddress);
-            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
+            pingTimer.Elapsed += new ElapsedEventHandler(1000);
             pingTimer.Start();
             running = true;
             return true;
@@ -56,14 +56,6 @@ namespace csharpClient {
             return rcv;
         }
 
-        private void SetupPing()
-        {
-            double interval = 300.0;
-            pingTimer = new System.Timers.Timer(interval);
-            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
-            pingTimer.Start();
-
-        }
         private void doPing(object source, ElapsedEventArgs e)
         {
             sendMessage("hh");
