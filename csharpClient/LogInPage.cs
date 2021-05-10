@@ -38,6 +38,9 @@ namespace csharpClient
             {
                 errorLabel.Text = "Not connected to server";
             }
+            /*ClientPage objClientPAge = new ClientPage();
+            this.Hide();
+            ClientPage.Show(); */
         }
 
         private void exitButton_Click(object sender, EventArgs e)
