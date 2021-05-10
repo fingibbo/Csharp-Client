@@ -86,5 +86,10 @@ namespace csharpClient
             }
 
         }
+
+        private void errorLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

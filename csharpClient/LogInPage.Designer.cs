@@ -33,7 +33,6 @@ namespace csharpClient
             this.exitButton = new System.Windows.Forms.Button();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.readerBox = new System.Windows.Forms.ListBox();
             this.ipBox = new System.Windows.Forms.TextBox();
             this.portBox = new System.Windows.Forms.TextBox();
             this.ServerConnectButton = new System.Windows.Forms.Button();
@@ -77,15 +76,6 @@ namespace csharpClient
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(273, 20);
             this.passwordTextBox.TabIndex = 6;
-            // 
-            // readerBox
-            // 
-            this.readerBox.FormattingEnabled = true;
-            this.readerBox.Location = new System.Drawing.Point(12, 225);
-            this.readerBox.Name = "readerBox";
-            this.readerBox.Size = new System.Drawing.Size(278, 56);
-            this.readerBox.TabIndex = 7;
-            this.readerBox.Visible = false;
             // 
             // ipBox
             // 
@@ -154,9 +144,9 @@ namespace csharpClient
             this.errorLabel.AutoSize = true;
             this.errorLabel.Location = new System.Drawing.Point(14, 194);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(35, 13);
+            this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 15;
-            this.errorLabel.Text = "label1";
+            this.errorLabel.Click += new System.EventHandler(this.errorLabel_Click);
             // 
             // LogInPage
             // 
@@ -171,7 +161,6 @@ namespace csharpClient
             this.Controls.Add(this.ServerConnectButton);
             this.Controls.Add(this.portBox);
             this.Controls.Add(this.ipBox);
-            this.Controls.Add(this.readerBox);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.exitButton);
@@ -190,7 +179,6 @@ namespace csharpClient
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.ListBox readerBox;
         private System.Windows.Forms.TextBox ipBox;
         private System.Windows.Forms.TextBox portBox;
         private System.Windows.Forms.Button ServerConnectButton;

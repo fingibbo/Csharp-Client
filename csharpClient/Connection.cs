@@ -42,6 +42,7 @@ namespace csharpClient
             running = false;
             pingTimer.Stop();
             clientSocket.Close();
+            clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
         public void sendMessage(string toSend)
