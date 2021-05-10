@@ -16,8 +16,10 @@ namespace csharpClient
 {
     public partial class LogInPage : Form
     {
+        static string ipAdd;
+        static int port;
         Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-        IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse("86.6.1.8"), 420); //"86.6.1.8"
+        IPEndPoint serverAddress = new IPEndPoint(IPAddress.Parse(ipAdd), port); //"86.6.1.8"
         bool socketConnect = false;
         private static System.Timers.Timer pingTimer;
 
@@ -33,7 +35,6 @@ namespace csharpClient
             int toSendLen = System.Text.Encoding.ASCII.GetByteCount(toSend);
             byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(toSend);
             byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
-            receiverLabel.Text = toSend;
             clientSocket.Send(toSendLenBytes);
             clientSocket.Send(toSendBytes);
         }
@@ -52,7 +53,7 @@ namespace csharpClient
                 byte[] rcvBytes = new byte[rcvLen];
                 clientSocket.Receive(rcvBytes);
                 String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
-                receiverLabel.Text = rcv;
+                readerBox.Items.Add(rcv);
             }
         }
         private void SetupPing()
@@ -71,18 +72,15 @@ namespace csharpClient
 
         private void logInButton_Click(object sender, EventArgs e)
         {
-            if(socketConnect == false)
+            if(socketConnect == true)
             {
-                clientSocket.Connect(serverAddress);
                 msgSender("U" + usernameTextBox.Text);
                 msgSender("P" + passwordTextBox.Text);
-                socketConnect = true;
-                
+                msgReceiver();
             }
             else
             {
-                msgSender("U" + usernameTextBox.Text);
-                msgSender("P" + passwordTextBox.Text);
+                errorLabel.Text = "Not connected to server";
             }
 
 
@@ -96,6 +94,39 @@ namespace csharpClient
                 return;
             }
             Application.Exit();
+        }
+
+        private void ServerConnectButton_Click(object sender, EventArgs e)
+        {
+            if (socketConnect == false)
+            {
+                try
+                {
+                    port = Int32.Parse(portBox.Text);
+                }
+                catch (FormatException)
+                {
+                    errorLabel.Text = "port is causing an error";
+                }
+                if (socketConnect == false)
+                {
+                }
+                try
+                {
+                    clientSocket.Connect(serverAddress);
+                }
+                catch (SocketException)
+                {
+                    errorLabel.Text = "IP or Port is incorrect";
+                }
+                msgReceiver();
+                socketConnect = true;
+            }
+            else 
+            { 
+
+            }
+
         }
     }
 }
