@@ -19,7 +19,7 @@ namespace csharpClient {
         public static Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public static IPEndPoint serverAddress;
         private static System.Timers.Timer pingTimer = new System.Timers.Timer(1000);
-        public bool running = false;
+        public static bool running = false;
 
         public bool createConnection(String ip, int port)
         {
