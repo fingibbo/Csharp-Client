@@ -33,6 +33,7 @@ namespace csharpClient
             this.exitButton = new System.Windows.Forms.Button();
             this.senderBox = new System.Windows.Forms.TextBox();
             this.messageBox = new System.Windows.Forms.ListBox();
+            this.groupListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // sendButton
@@ -71,11 +72,20 @@ namespace csharpClient
             this.messageBox.Size = new System.Drawing.Size(995, 615);
             this.messageBox.TabIndex = 3;
             // 
+            // groupListBox
+            // 
+            this.groupListBox.FormattingEnabled = true;
+            this.groupListBox.Location = new System.Drawing.Point(1015, 13);
+            this.groupListBox.Name = "groupListBox";
+            this.groupListBox.Size = new System.Drawing.Size(237, 364);
+            this.groupListBox.TabIndex = 4;
+            // 
             // ClientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.groupListBox);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.senderBox);
             this.Controls.Add(this.exitButton);
@@ -93,5 +103,6 @@ namespace csharpClient
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.TextBox senderBox;
         private System.Windows.Forms.ListBox messageBox;
+        private System.Windows.Forms.CheckedListBox groupListBox;
     }
 }
