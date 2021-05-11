@@ -18,7 +18,6 @@ namespace csharpClient
     {
         public static Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public static IPEndPoint serverAddress;
-        private static System.Timers.Timer pingTimer = new System.Timers.Timer(1000);
         public static bool running = false;
 
         public bool createConnection(String ip, int port)
@@ -26,8 +25,6 @@ namespace csharpClient
             serverAddress = new IPEndPoint(IPAddress.Parse(ip), port);
             clientSocket.Connect(serverAddress);
             clientSocket.ReceiveTimeout = 3000;
-            pingTimer.Elapsed += new ElapsedEventHandler(doPing);
-            pingTimer.Start();
             running = true;
             return true;
         }
@@ -41,7 +38,6 @@ namespace csharpClient
         public void endConnection()
         {
             running = false;
-            pingTimer.Stop();
             clientSocket.Close();
             clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
@@ -64,11 +60,6 @@ namespace csharpClient
             clientSocket.Receive(rcvBytes);
             String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
             return rcv.Normalize();
-        }
-
-        private void doPing(object source, ElapsedEventArgs e)
-        {
-            sendMessage("hh");
         }
 
     }
