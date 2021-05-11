@@ -35,34 +35,40 @@ namespace csharpClient
             con.sendMessage("UGL");
             groupSorter();
             if (newGchat) con.sendMessage("UFGD");
-            else con.sendMessage("UGD");
+            else con.sendMessage("UPGD");
             msgSorter();
         }
 
         private void groupSorter()
         {
             string response = con.getMessage();
-            string[] data = ((string)response.Clone()).Split(new char[]{ ':', ',' });
-            string[][] postData = new string[data.Length/2][];
-            for(int i = 0; i < data.Length; i+=2)
+            if (response == "NULL") 
             {
-                postData[i/2] = new string[2];
-                postData[i/2][0] = data[i];
-                postData[i / 2][1] = data[i + 1];
+            }
+            else {
+
+                string[] data = ((string)response.Clone()).Split(new char[] { ':', ',' });
+                string[][] postData = new string[data.Length / 2][];
+                for (int i = 0; i < data.Length; i += 2)
+                {
+                    postData[i / 2] = new string[2];
+                    postData[i / 2][0] = data[i];
+                    postData[i / 2][1] = data[i + 1];
+                }
+
+                groupButtons.Clear();
+                for (int i = 0; i < postData.Length; i++)
+                {
+                    groupButtons.Add(new RadioButton());
+                    groupButtons[i].Width = 300;
+                    groupButtons[i].Text = (i + 1) + ". " + postData[i][1];
+                    groupButtons[i].Location = new Point(10, 10 + i * 20);
+                    radioGroupBox.Controls.Add(groupButtons[i]);
+                    groupButtons[i].CheckedChanged += new EventHandler(groupButtons_CheckedChanged);
+                }
+                groupData = postData;
             }
 
-            groupButtons.Clear();
-            for (int i = 0; i <  postData.Length; i++)
-            {
-                groupButtons.Add(new RadioButton());
-                groupButtons[i].Width = 300;
-                groupButtons[i].Text = (i+1) + ". " + postData[i][1];
-                groupButtons[i].Location = new Point(10, 10 + i * 20);
-                radioGroupBox.Controls.Add(groupButtons[i]);
-                groupButtons[i].CheckedChanged += new EventHandler(groupButtons_CheckedChanged);
-            }
-
-            groupData = postData;
             
         }
         private void msgSorter()
