@@ -26,6 +26,7 @@ namespace csharpClient
             groupSorter(); 
             chatUpdateTimer.Elapsed += new ElapsedEventHandler(updateCheck);
             //chatUpdateTimer.Start();
+            
 
 
         }
@@ -66,6 +67,7 @@ namespace csharpClient
             if (((RadioButton)button).Checked)
             {
                 con.sendMessage("G"+((RadioButton)button).Text.Split(new char[] { '.' })[0]);
+                con.sendMessage("UGD");
                 
             }
         }
@@ -73,7 +75,7 @@ namespace csharpClient
         private void sendButton_Click(object sender, EventArgs e)
         {
 
-            con.sendMessage("M" + senderBox.Text);
+            con.sendMessage("M" + senderBox.Text + "|");
         }
 
 
