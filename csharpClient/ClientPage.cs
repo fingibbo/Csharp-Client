@@ -50,15 +50,23 @@ namespace csharpClient
             for (int i = 0; i <  postData.Length; i++)
             {
                 groupButtons[i] = new RadioButton();
-                groupButtons[i].Text = postData[i][1];
+                groupButtons[i].Text = i + ". " + postData[i][1];
                 groupButtons[i].Location = new Point(10, 10 + i * 20);
                 radioGroupBox.Controls.Add(groupButtons[i]);
-                
-                //groupListBox.Items.Add(postData[i][1]);
+                groupButtons[1].CheckedChanged += new EventHandler(groupButtons_CheckedChanged);
             }
 
             groupData = postData;
             
+        }
+
+        private void groupButtons_CheckedChanged(object button, EventArgs e)
+        {
+            if (((RadioButton)button).Checked)
+            {
+                con.sendMessage("G"+((RadioButton)button).Text.Split(new char[] { '.' })[0]);
+                
+            }
         }
 
         private void sendButton_Click(object sender, EventArgs e)
