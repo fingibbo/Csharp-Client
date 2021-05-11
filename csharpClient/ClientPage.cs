@@ -42,7 +42,7 @@ namespace csharpClient
         private void groupSorter()
         {
             string response = con.getMessage();
-            if (response == "NULL") 
+            if (Int32.Parse(response) == -1) 
             {
             }
             else {
