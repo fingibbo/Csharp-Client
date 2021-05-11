@@ -14,6 +14,7 @@ namespace csharpClient
         [STAThread]
         static void Main()
         {
+            //initialises the log in page upon start up
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new LogInPage());

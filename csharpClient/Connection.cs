@@ -16,25 +16,30 @@ namespace csharpClient
 
     class Connection
     {
+        //sets variables for connecting to the server java socket
         public static Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public static IPEndPoint serverAddress;
         public static bool running = false;
 
+        //connects to server
         public bool createConnection(String ip, int port)
         {
+            //takes inputted ip and port to connect to the server
             serverAddress = new IPEndPoint(IPAddress.Parse(ip), port);
             clientSocket.Connect(serverAddress);
             clientSocket.ReceiveTimeout = 3000;
+            //sets the server connected as true
             running = true;
             return true;
         }
 
-
+        //way to check is server is running
         public bool isRunning()
         {
             return running;
         }
 
+        //disconnects from server by settings running to false and closing the socket
         public void endConnection()
         {
             running = false;
@@ -42,17 +47,22 @@ namespace csharpClient
             clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
 
+        //sends messages
         public void sendMessage(string toSend)
         {
+            //converts the text to send to bytes
             int toSendLen = System.Text.Encoding.ASCII.GetByteCount(toSend);
             byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(toSend);
             byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
+            //sends the message
             clientSocket.Send(toSendLenBytes);
             clientSocket.Send(toSendBytes);
         }
 
+        //gets messages from the server
         public string getMessage()
         {
+            
             byte[] rcvLenBytes = new byte[4];
             clientSocket.Receive(rcvLenBytes);
             int rcvLen = System.BitConverter.ToInt32(rcvLenBytes, 0);

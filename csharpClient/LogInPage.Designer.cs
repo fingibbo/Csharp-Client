@@ -146,7 +146,6 @@ namespace csharpClient
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 15;
-            this.errorLabel.Click += new System.EventHandler(this.errorLabel_Click);
             // 
             // LogInPage
             // 

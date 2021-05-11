@@ -68,16 +68,33 @@ namespace csharpClient
         }
         private void msgSorter()
         {
-            messageBox.Items.Clear();
             string[] messagePrint = con.getMessage().Split(new char[] { '|' });
-            for(int i = 0; i < messagePrint.Length; i += 4)
+
+            if (newGchat == true)
             {
-                if (messagePrint.Length >= 4)
+                messageBox.Items.Clear();
+                for (int i = 0; i < messagePrint.Length; i += 4)
                 {
-                    messageBox.Items.Add("-------------");
-                    messageBox.Items.Add(messagePrint[1 + i] + " || " + messagePrint[i]);
-                    messageBox.Items.Add(messagePrint[2 + i]);
-                    messageBox.Items.Add("");
+                    if (messagePrint.Length >= 4)
+                    {
+                        messageBox.Items.Add("-------------");
+                        messageBox.Items.Add(messagePrint[1 + i] + " || " + messagePrint[i]);
+                        messageBox.Items.Add(messagePrint[2 + i]);
+                        messageBox.Items.Add("");
+                    }
+                }
+            }
+            else {
+
+                for (int i = 0; i < messagePrint.Length; i += 4)
+                {
+                    if (messagePrint.Length >= 4)
+                    {
+                        messageBox.Items.Add("-------------");
+                        messageBox.Items.Add(messagePrint[1 + i] + " || " + messagePrint[i]);
+                        messageBox.Items.Add(messagePrint[2 + i]);
+                        messageBox.Items.Add("");
+                    }
                 }
             }
         }
