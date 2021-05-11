@@ -107,9 +107,5 @@ namespace csharpClient
             Application.Exit();
         }
 
-        private void radioGroupBox_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

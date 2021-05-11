@@ -78,7 +78,6 @@ namespace csharpClient
             this.radioGroupBox.Size = new System.Drawing.Size(238, 321);
             this.radioGroupBox.TabIndex = 6;
             this.radioGroupBox.TabStop = false;
-            this.radioGroupBox.Enter += new System.EventHandler(this.radioGroupBox_Enter);
             // 
             // ClientPage
             // 
