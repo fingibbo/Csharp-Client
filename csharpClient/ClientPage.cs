@@ -48,7 +48,7 @@ namespace csharpClient
 
             for(int i = 0; i <  postData.Length; i++)
             {
-                groupListBox.Items.Add(postData[i][1]);
+                //groupListBox.Items.Add(postData[i][1]);
             }
 
             groupData = postData;
@@ -68,26 +68,6 @@ namespace csharpClient
             LogInPage form = new LogInPage();
             this.Close();
             form.Show();
-        }
-
-        private void groupListBox_ItemCheck(object sender, ItemCheckEventArgs e)
-        {
-            if (e.NewValue == CheckState.Checked && groupListBox.CheckedItems.Count > 0)
-            {
-                groupListBox.ItemCheck -= groupListBox_ItemCheck;
-                groupListBox.SetItemChecked(groupListBox.CheckedIndices[0], false);
-                groupListBox.ItemCheck += groupListBox_ItemCheck;
-            }
-
-            messageBox.Items.Add("pre");
-            foreach (object item in groupListBox.CheckedItems)
-            {
-                messageBox.Items.Add("during");
-                currentGroup = item.ToString();
-                messageBox.Items.Add(currentGroup);
-            }
-            messageBox.Items.Add("post");
-
         }
 
         private void ClientPage_Load(object sender, EventArgs e)

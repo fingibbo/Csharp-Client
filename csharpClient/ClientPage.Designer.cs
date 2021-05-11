@@ -33,7 +33,9 @@ namespace csharpClient
             this.exitButton = new System.Windows.Forms.Button();
             this.senderBox = new System.Windows.Forms.TextBox();
             this.messageBox = new System.Windows.Forms.ListBox();
-            this.groupListBox = new System.Windows.Forms.CheckedListBox();
+            this.radioGroupBox = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // sendButton
@@ -72,21 +74,32 @@ namespace csharpClient
             this.messageBox.Size = new System.Drawing.Size(995, 615);
             this.messageBox.TabIndex = 3;
             // 
-            // groupListBox
+            // radioGroupBox
             // 
-            this.groupListBox.FormattingEnabled = true;
-            this.groupListBox.Location = new System.Drawing.Point(1015, 13);
-            this.groupListBox.Name = "groupListBox";
-            this.groupListBox.Size = new System.Drawing.Size(237, 364);
-            this.groupListBox.TabIndex = 4;
-            this.groupListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.groupListBox_ItemCheck);
+            this.radioGroupBox.Controls.Add(this.radioButton1);
+            this.radioGroupBox.Location = new System.Drawing.Point(1014, 12);
+            this.radioGroupBox.Name = "radioGroupBox";
+            this.radioGroupBox.Size = new System.Drawing.Size(238, 321);
+            this.radioGroupBox.TabIndex = 6;
+            this.radioGroupBox.TabStop = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 11);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // ClientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.groupListBox);
+            this.Controls.Add(this.radioGroupBox);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.senderBox);
             this.Controls.Add(this.exitButton);
@@ -96,6 +109,8 @@ namespace csharpClient
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientPage_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientPage_FormClosed);
             this.Load += new System.EventHandler(this.ClientPage_Load);
+            this.radioGroupBox.ResumeLayout(false);
+            this.radioGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,6 +122,7 @@ namespace csharpClient
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.TextBox senderBox;
         private System.Windows.Forms.ListBox messageBox;
-        private System.Windows.Forms.CheckedListBox groupListBox;
+        private System.Windows.Forms.GroupBox radioGroupBox;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
