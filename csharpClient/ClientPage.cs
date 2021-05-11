@@ -68,9 +68,16 @@ namespace csharpClient
         {
             messageBox.Items.Clear();
             string[] messagePrint = con.getMessage().Split(new char[] { '|' });
+            string display;
             for(int i = 0; i < messagePrint.Length; i += 4)
             {
-
+                if (messagePrint.Length >= 4)
+                {
+                    messageBox.Items.Add("-------------");
+                    messageBox.Items.Add(messagePrint[1 + i] + " || " + messagePrint[i]);
+                    messageBox.Items.Add(messagePrint[2 + i]);
+                    messageBox.Items.Add();
+                }
             }
         }
 
