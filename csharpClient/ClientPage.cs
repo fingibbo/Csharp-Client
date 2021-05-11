@@ -94,5 +94,15 @@ namespace csharpClient
         {
 
         }
+
+        private void ClientPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void ClientPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
