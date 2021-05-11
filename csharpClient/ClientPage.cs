@@ -18,7 +18,7 @@ namespace csharpClient
         private static System.Windows.Forms.Timer updateTimer = new System.Windows.Forms.Timer();
         private string[][] groupData;
         private string currentGroup;
-        RadioButton[] groupButtons;
+        List<RadioButton> groupButtons = new List<RadioButton>(0);
 
         public ClientPage()
         {
@@ -29,6 +29,7 @@ namespace csharpClient
 
 
         }
+
         private void updateCheck(object source, EventArgs e)
         {
             con.sendMessage("UGL");
@@ -39,7 +40,8 @@ namespace csharpClient
 
         private void groupSorter()
         {
-            string[] data = con.getMessage().Split(new char[]{ ':', ',' });
+            string response = con.getMessage();
+            string[] data = ((string)response.Clone()).Split(new char[]{ ':', ',' });
             string[][] postData = new string[data.Length/2][];
             for(int i = 0; i < data.Length; i+=2)
             {
@@ -47,10 +49,11 @@ namespace csharpClient
                 postData[i/2][0] = data[i];
                 postData[i / 2][1] = data[i + 1];
             }
-            groupButtons = new RadioButton[postData.Length];
+
+            groupButtons.Clear();
             for (int i = 0; i <  postData.Length; i++)
             {
-                groupButtons[i] = new RadioButton();
+                groupButtons.Add(new RadioButton());
                 groupButtons[i].Width = 300;
                 groupButtons[i].Text = (i+1) + ". " + postData[i][1];
                 groupButtons[i].Location = new Point(10, 10 + i * 20);
@@ -71,8 +74,6 @@ namespace csharpClient
             if (((RadioButton)button).Checked)
             {
                 con.sendMessage("G"+((RadioButton)button).Text.Split(new char[] { '.' })[0]);
-                con.sendMessage("UGD");
-                
             }
         }
 
