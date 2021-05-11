@@ -16,6 +16,7 @@ namespace csharpClient
         Connection con = new Connection();
         //private static System.Timers.Timer chatUpdateTimer = new System.Timers.Timer(750);
         private static System.Windows.Forms.Timer updateTimer = new System.Windows.Forms.Timer();
+        private bool newGchat = false;
         private string[][] groupData;
         private string currentGroup;
         List<RadioButton> groupButtons = new List<RadioButton>(0);
@@ -34,7 +35,8 @@ namespace csharpClient
         {
             con.sendMessage("UGL");
             groupSorter();
-            con.sendMessage("UGD");
+            if (newGchat) con.sendMessage("UFGD");
+            else con.sendMessage("UGD");
             msgSorter();
         }
 
@@ -68,7 +70,6 @@ namespace csharpClient
         {
             messageBox.Items.Clear();
             string[] messagePrint = con.getMessage().Split(new char[] { '|' });
-            string display;
             for(int i = 0; i < messagePrint.Length; i += 4)
             {
                 if (messagePrint.Length >= 4)
@@ -85,6 +86,7 @@ namespace csharpClient
         {
             if (((RadioButton)button).Checked)
             {
+                newGchat = true;
                 con.sendMessage("G"+((RadioButton)button).Text.Split(new char[] { '.' })[0]);
             }
         }
