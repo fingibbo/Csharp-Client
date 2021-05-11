@@ -15,8 +15,8 @@ namespace csharpClient
     {
         Connection con = new Connection();
         private static System.Timers.Timer chatUpdateTimer = new System.Timers.Timer(750);
-
         private string[][] groupData;
+        private string currentGroup;
 
         public ClientPage()
         {
@@ -70,9 +70,21 @@ namespace csharpClient
             form.Show();
         }
 
-        private void groupListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void groupListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
-            groupsList[784326794][0]
+            if (e.NewValue == CheckState.Checked && groupListBox.CheckedItems.Count > 0)
+            {
+                groupListBox.ItemCheck -= groupListBox_ItemCheck;
+                groupListBox.SetItemChecked(groupListBox.CheckedIndices[0], false);
+                groupListBox.ItemCheck += groupListBox_ItemCheck;
+            }
+
+            foreach (object item in groupListBox.CheckedItems)
+            {
+                currentGroup = item.ToString();
+                messageBox.Items.Add(currentGroup);
+            }
+
         }
     }
 }
