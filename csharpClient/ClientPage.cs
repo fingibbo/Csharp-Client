@@ -22,21 +22,27 @@ namespace csharpClient
             con.sendMessage("UGL");
             groupSorter(); 
             chatUpdateTimer.Elapsed += new ElapsedEventHandler(updateCheck);
-            chatUpdateTimer.Start();
+            //chatUpdateTimer.Start();
 
 
         }
         private void updateCheck(object source, ElapsedEventArgs e)
         {
+            con.sendMessage("UGL");
+            groupSorter();
             con.sendMessage("UGD");
         }
 
         private void groupSorter()
         {
-            messageBox.Items.Add(con.getMessage());
-            con.sendMessage("G1");
-            con.sendMessage("UGD");
-
+            string[] data = con.getMessage().Split(new char[]{ ':', ',' });
+            string[][] postData = new string[data.Length/2][];
+            for(int i = 0; i < data.Length; i+=2)
+            {
+                postData[i/2] = new string[2];
+                postData[i/2][0] = data[i];
+                postData[i / 2][1] = data[i + 1];
+            }
         }
 
         private void sendButton_Click(object sender, EventArgs e)
