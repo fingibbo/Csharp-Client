@@ -52,7 +52,7 @@ namespace csharpClient
             {
                 groupButtons[i] = new RadioButton();
                 groupButtons[i].Width = 300;
-                groupButtons[i].Text = i + ". " + postData[i][1];
+                groupButtons[i].Text = (i+1) + ". " + postData[i][1];
                 groupButtons[i].Location = new Point(10, 10 + i * 20);
                 radioGroupBox.Controls.Add(groupButtons[i]);
                 groupButtons[i].CheckedChanged += new EventHandler(groupButtons_CheckedChanged);
@@ -75,7 +75,8 @@ namespace csharpClient
         private void sendButton_Click(object sender, EventArgs e)
         {
 
-            con.sendMessage("M" + senderBox.Text + "|");
+            con.sendMessage("M" + senderBox.Text);
+            senderBox.Text = "";
         }
 
 

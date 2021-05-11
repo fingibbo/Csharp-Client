@@ -62,7 +62,6 @@ namespace csharpClient
             this.senderBox.Name = "senderBox";
             this.senderBox.Size = new System.Drawing.Size(914, 20);
             this.senderBox.TabIndex = 2;
-            this.senderBox.Text = "Type here...";
             // 
             // messageBox
             // 
