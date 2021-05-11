@@ -14,7 +14,8 @@ namespace csharpClient
     public partial class ClientPage : Form
     {
         Connection con = new Connection();
-        private static System.Timers.Timer chatUpdateTimer = new System.Timers.Timer(750);
+        //private static System.Timers.Timer chatUpdateTimer = new System.Timers.Timer(750);
+        private static System.Windows.Forms.Timer updateTimer = new System.Windows.Forms.Timer();
         private string[][] groupData;
         private string currentGroup;
         RadioButton[] groupButtons;
@@ -22,13 +23,13 @@ namespace csharpClient
         public ClientPage()
         {
             InitializeComponent();
-            chatUpdateTimer.Elapsed += new ElapsedEventHandler(updateCheck);
-            chatUpdateTimer.Start();
+            updateTimer.Tick += new EventHandler(updateCheck);
+            updateTimer.Start();
             
 
 
         }
-        private void updateCheck(object source, ElapsedEventArgs e)
+        private void updateCheck(object source, EventArgs e)
         {
             con.sendMessage("UGL");
             groupSorter();
