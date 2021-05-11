@@ -48,6 +48,7 @@ namespace csharpClient
 
             for(int i = 0; i <  postData.Length; i++)
             {
+
                 //groupListBox.Items.Add(postData[i][1]);
             }
 
