@@ -32,20 +32,14 @@ namespace csharpClient
 
         private void updateCheck(object source, EventArgs e)
         {
-            con.sendMessage("UGL");
             groupSorter();
-            if (newGchat) con.sendMessage("UFGD");
-            else con.sendMessage("UPGD");
             msgSorter();
         }
 
         private void groupSorter()
         {
+            con.sendMessage("UGL");
             string response = con.getMessage();
-            if (Int32.Parse(response) == -1) 
-            {
-            }
-            else {
 
                 string[] data = ((string)response.Clone()).Split(new char[] { ':', ',' });
                 string[][] postData = new string[data.Length / 2][];
@@ -67,12 +61,14 @@ namespace csharpClient
                     groupButtons[i].CheckedChanged += new EventHandler(groupButtons_CheckedChanged);
                 }
                 groupData = postData;
-            }
+            
 
             
         }
         private void msgSorter()
         {
+
+            con.sendMessage("UFGD");
             string[] messagePrint = con.getMessage().Split(new char[] { '|' });
 
             if (newGchat == true)
