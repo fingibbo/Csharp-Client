@@ -66,7 +66,12 @@ namespace csharpClient
         }
         private void msgSorter()
         {
-            messageBox.Items.Add(con.getMessage());
+            messageBox.Items.Clear();
+            string[] messagePrint = con.getMessage().Split(new char[] { '|' });
+            for(int i = 0; i < messagePrint.Length; i += 4)
+            {
+
+            }
         }
 
         private void groupButtons_CheckedChanged(object button, EventArgs e)
