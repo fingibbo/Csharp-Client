@@ -79,6 +79,7 @@ namespace csharpClient
             this.groupListBox.Name = "groupListBox";
             this.groupListBox.Size = new System.Drawing.Size(237, 364);
             this.groupListBox.TabIndex = 4;
+            this.groupListBox.SelectedIndexChanged += new System.EventHandler(this.groupListBox_SelectedIndexChanged);
             // 
             // ClientPage
             // 

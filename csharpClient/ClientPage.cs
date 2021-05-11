@@ -16,6 +16,8 @@ namespace csharpClient
         Connection con = new Connection();
         private static System.Timers.Timer chatUpdateTimer = new System.Timers.Timer(750);
 
+        private string[][] groupData;
+
         public ClientPage()
         {
             InitializeComponent();
@@ -43,6 +45,14 @@ namespace csharpClient
                 postData[i/2][0] = data[i];
                 postData[i / 2][1] = data[i + 1];
             }
+
+            for(int i = 0; i <  postData.Length; i++)
+            {
+                groupListBox.Items.Add(postData[i][1]);
+            }
+
+            groupData = postData;
+            
         }
 
         private void sendButton_Click(object sender, EventArgs e)
@@ -58,6 +68,11 @@ namespace csharpClient
             LogInPage form = new LogInPage();
             this.Close();
             form.Show();
+        }
+
+        private void groupListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            groupsList[784326794][0]
         }
     }
 }
