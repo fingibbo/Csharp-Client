@@ -76,7 +76,7 @@ namespace csharpClient
                     messageBox.Items.Add("-------------");
                     messageBox.Items.Add(messagePrint[1 + i] + " || " + messagePrint[i]);
                     messageBox.Items.Add(messagePrint[2 + i]);
-                    messageBox.Items.Add();
+                    messageBox.Items.Add("");
                 }
             }
         }
