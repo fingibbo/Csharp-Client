@@ -17,6 +17,7 @@ namespace csharpClient
         private static System.Timers.Timer chatUpdateTimer = new System.Timers.Timer(750);
         private string[][] groupData;
         private string currentGroup;
+        RadioButton[] groupButtons;
 
         public ClientPage()
         {
@@ -45,10 +46,14 @@ namespace csharpClient
                 postData[i/2][0] = data[i];
                 postData[i / 2][1] = data[i + 1];
             }
-
-            for(int i = 0; i <  postData.Length; i++)
+            groupButtons = new RadioButton[postData.Length];
+            for (int i = 0; i <  postData.Length; i++)
             {
-
+                groupButtons[i] = new RadioButton();
+                groupButtons[i].Text = postData[i][1];
+                groupButtons[i].Location = new Point(10, 10 + i * 20);
+                radioGroupBox.Controls.Add(groupButtons[i]);
+                
                 //groupListBox.Items.Add(postData[i][1]);
             }
 
@@ -84,6 +89,11 @@ namespace csharpClient
         private void ClientPage_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void radioGroupBox_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

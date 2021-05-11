@@ -34,8 +34,6 @@ namespace csharpClient
             this.senderBox = new System.Windows.Forms.TextBox();
             this.messageBox = new System.Windows.Forms.ListBox();
             this.radioGroupBox = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // sendButton
@@ -76,23 +74,12 @@ namespace csharpClient
             // 
             // radioGroupBox
             // 
-            this.radioGroupBox.Controls.Add(this.radioButton1);
             this.radioGroupBox.Location = new System.Drawing.Point(1014, 12);
             this.radioGroupBox.Name = "radioGroupBox";
             this.radioGroupBox.Size = new System.Drawing.Size(238, 321);
             this.radioGroupBox.TabIndex = 6;
             this.radioGroupBox.TabStop = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 11);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioGroupBox.Enter += new System.EventHandler(this.radioGroupBox_Enter);
             // 
             // ClientPage
             // 
@@ -109,8 +96,6 @@ namespace csharpClient
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientPage_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientPage_FormClosed);
             this.Load += new System.EventHandler(this.ClientPage_Load);
-            this.radioGroupBox.ResumeLayout(false);
-            this.radioGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,6 +108,5 @@ namespace csharpClient
         private System.Windows.Forms.TextBox senderBox;
         private System.Windows.Forms.ListBox messageBox;
         private System.Windows.Forms.GroupBox radioGroupBox;
-        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
