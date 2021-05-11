@@ -80,7 +80,7 @@ namespace csharpClient
             }
 
             messageBox.Items.Add("pre");
-            foreach (object item in groupListBox.CheckedItems)
+            foreach (object item ikn groupListBox..i)
             {
                 messageBox.Items.Add("during");
                 currentGroup = item.ToString();
