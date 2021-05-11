@@ -62,13 +62,15 @@ namespace csharpClient
         //gets messages from the server
         public string getMessage()
         {
-            
+            //receives message and message length in byes from server
             byte[] rcvLenBytes = new byte[4];
             clientSocket.Receive(rcvLenBytes);
             int rcvLen = System.BitConverter.ToInt32(rcvLenBytes, 0);
             byte[] rcvBytes = new byte[rcvLen];
             clientSocket.Receive(rcvBytes);
+            //converts to bytes to string
             String rcv = System.Text.Encoding.ASCII.GetString(rcvBytes);
+            //prints message
             return rcv.Normalize();
         }
 
