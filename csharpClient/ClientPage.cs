@@ -22,10 +22,8 @@ namespace csharpClient
         public ClientPage()
         {
             InitializeComponent();
-            con.sendMessage("UGL");
-            groupSorter(); 
             chatUpdateTimer.Elapsed += new ElapsedEventHandler(updateCheck);
-            //chatUpdateTimer.Start();
+            chatUpdateTimer.Start();
             
 
 
@@ -35,6 +33,7 @@ namespace csharpClient
             con.sendMessage("UGL");
             groupSorter();
             con.sendMessage("UGD");
+            msgSorter();
         }
 
         private void groupSorter()
@@ -60,6 +59,10 @@ namespace csharpClient
 
             groupData = postData;
             
+        }
+        private void msgSorter()
+        {
+            messageBox.Items.Add(con.getMessage());
         }
 
         private void groupButtons_CheckedChanged(object button, EventArgs e)
