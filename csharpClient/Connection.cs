@@ -25,6 +25,7 @@ namespace csharpClient
         {
             serverAddress = new IPEndPoint(IPAddress.Parse(ip), port);
             clientSocket.Connect(serverAddress);
+            clientSocket.ReceiveTimeout = 3000;
             pingTimer.Elapsed += new ElapsedEventHandler(doPing);
             pingTimer.Start();
             running = true;
