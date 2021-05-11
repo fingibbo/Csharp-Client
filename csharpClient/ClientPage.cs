@@ -14,7 +14,6 @@ namespace csharpClient
     public partial class ClientPage : Form
     {
         Connection con = new Connection();
-        //private static System.Timers.Timer chatUpdateTimer = new System.Timers.Timer(750);
         private static System.Windows.Forms.Timer updateTimer = new System.Windows.Forms.Timer();
         private bool newGchat = false;
         private string[][] groupData;
