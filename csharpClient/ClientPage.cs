@@ -84,6 +84,7 @@ namespace csharpClient
                         messageBox.Items.Add("");
                     }
                 }
+                newGchat = false;
             }
             else {
 
