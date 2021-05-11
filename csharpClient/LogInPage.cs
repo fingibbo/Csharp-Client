@@ -9,6 +9,7 @@ namespace csharpClient
         //intialises variables for inputted ip and port
         static string ipAdd;
         static int port;
+
         //sets if the socket is connected by default
         bool socketConnect = false;
         //creates connection class
@@ -35,12 +36,14 @@ namespace csharpClient
                     //if response is 0, it means username and password are wrong and prints that your log in is incorrect
                     errorLabel.Text = "Username or Password is incorrect.";
                 }
-                else if(response == 1)
+                else
                 {
                     //if response is 1, it means username and password are correct and opens the main client
                     ClientPage form = new ClientPage();
                     this.Hide();
+                    form.setUsername(usernameTextBox.Text + "#" + response);
                     form.Show();
+
                 }
             }
             //socket not connected message

@@ -25,9 +25,11 @@ namespace csharpClient
             InitializeComponent();
             updateTimer.Tick += new EventHandler(updateCheck);
             updateTimer.Start();
-            
+        }
 
-
+        public void setUsername(string user)
+        {
+            userIDLabel.Text = user;
         }
 
         private void updateCheck(object source, EventArgs e)

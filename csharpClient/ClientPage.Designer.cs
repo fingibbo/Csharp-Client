@@ -34,6 +34,7 @@ namespace csharpClient
             this.senderBox = new System.Windows.Forms.TextBox();
             this.messageBox = new System.Windows.Forms.ListBox();
             this.radioGroupBox = new System.Windows.Forms.GroupBox();
+            this.userIDLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // sendButton
@@ -67,6 +68,7 @@ namespace csharpClient
             // 
             this.messageBox.FormattingEnabled = true;
             this.messageBox.Location = new System.Drawing.Point(13, 13);
+            this.messageBox.MultiColumn = true;
             this.messageBox.Name = "messageBox";
             this.messageBox.Size = new System.Drawing.Size(995, 615);
             this.messageBox.TabIndex = 3;
@@ -79,11 +81,22 @@ namespace csharpClient
             this.radioGroupBox.TabIndex = 6;
             this.radioGroupBox.TabStop = false;
             // 
+            // userIDLabel
+            // 
+            this.userIDLabel.AutoSize = true;
+            this.userIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.userIDLabel.Location = new System.Drawing.Point(1014, 611);
+            this.userIDLabel.Name = "userIDLabel";
+            this.userIDLabel.Size = new System.Drawing.Size(80, 17);
+            this.userIDLabel.TabIndex = 7;
+            this.userIDLabel.Text = "userIDHere";
+            // 
             // ClientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.userIDLabel);
             this.Controls.Add(this.radioGroupBox);
             this.Controls.Add(this.messageBox);
             this.Controls.Add(this.senderBox);
@@ -106,5 +119,6 @@ namespace csharpClient
         private System.Windows.Forms.TextBox senderBox;
         private System.Windows.Forms.ListBox messageBox;
         private System.Windows.Forms.GroupBox radioGroupBox;
+        private System.Windows.Forms.Label userIDLabel;
     }
 }
