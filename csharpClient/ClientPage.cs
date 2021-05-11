@@ -79,11 +79,19 @@ namespace csharpClient
                 groupListBox.ItemCheck += groupListBox_ItemCheck;
             }
 
+            messageBox.Items.Add("pre");
             foreach (object item in groupListBox.CheckedItems)
             {
+                messageBox.Items.Add("during");
                 currentGroup = item.ToString();
                 messageBox.Items.Add(currentGroup);
             }
+            messageBox.Items.Add("post");
+
+        }
+
+        private void ClientPage_Load(object sender, EventArgs e)
+        {
 
         }
     }

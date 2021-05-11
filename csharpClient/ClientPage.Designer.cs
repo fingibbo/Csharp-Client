@@ -93,6 +93,7 @@ namespace csharpClient
             this.Controls.Add(this.sendButton);
             this.Name = "ClientPage";
             this.Text = "Client";
+            this.Load += new System.EventHandler(this.ClientPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
