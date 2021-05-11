@@ -111,9 +111,15 @@ namespace csharpClient
 
         private void sendButton_Click(object sender, EventArgs e)
         {
+            if (senderBox.Text.Trim() == "")
+            {
 
-            con.sendMessage("M" + senderBox.Text);
-            senderBox.Text = "";
+            }
+            else 
+            {
+                con.sendMessage("M" + senderBox.Text);
+                senderBox.Text = "";
+            }
         }
 
 
