@@ -68,7 +68,8 @@ namespace csharpClient
         private void msgSorter()
         {
 
-            con.sendMessage("UFGD");
+            if (newGchat) con.sendMessage("UFGD");
+            else con.sendMessage("UPGD");
             string[] messagePrint = con.getMessage().Split(new char[] { '|' });
 
             if (newGchat == true)
@@ -84,6 +85,7 @@ namespace csharpClient
                         messageBox.Items.Add("");
                     }
                 }
+                newGchat = false;
             }
             else {
 
