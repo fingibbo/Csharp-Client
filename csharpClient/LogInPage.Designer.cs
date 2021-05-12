@@ -88,7 +88,6 @@ namespace csharpClient
             this.ipBox.Name = "ipBox";
             this.ipBox.Size = new System.Drawing.Size(192, 20);
             this.ipBox.TabIndex = 8;
-            this.ipBox.Text = "86.6.1.8";
             // 
             // portBox
             // 
