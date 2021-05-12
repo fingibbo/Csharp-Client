@@ -100,7 +100,7 @@ namespace csharpClient
             this.makeGroupButton.Name = "makeGroupButton";
             this.makeGroupButton.Size = new System.Drawing.Size(75, 40);
             this.makeGroupButton.TabIndex = 8;
-            this.makeGroupButton.Text = "Make Group Chat";
+            this.makeGroupButton.Text = "Make New Group Chat";
             this.makeGroupButton.UseVisualStyleBackColor = true;
             this.makeGroupButton.Click += new System.EventHandler(this.makeGroupButton_Click);
             // 

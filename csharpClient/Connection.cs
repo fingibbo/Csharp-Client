@@ -73,6 +73,8 @@ namespace csharpClient
             //prints message
             return rcv.Normalize();
         }
+
+        //removes punctuation from a string
         public string noPunc(string name)
         {
             string groupName;
