@@ -45,7 +45,7 @@ namespace csharpClient
             this.instructionLabel.Location = new System.Drawing.Point(9, 22);
             this.instructionLabel.Name = "instructionLabel";
             this.instructionLabel.Size = new System.Drawing.Size(187, 17);
-            this.instructionLabel.TabIndex = 3;
+            this.instructionLabel.TabIndex = 1;
             this.instructionLabel.Text = "User ID to add to group chat";
             // 
             // addButton
@@ -53,7 +53,7 @@ namespace csharpClient
             this.addButton.Location = new System.Drawing.Point(13, 106);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 5;
+            this.addButton.TabIndex = 4;
             this.addButton.Text = "Add User";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -63,7 +63,7 @@ namespace csharpClient
             this.cancelButton.Location = new System.Drawing.Point(246, 106);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 6;
+            this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Close";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -74,7 +74,7 @@ namespace csharpClient
             this.errorLabel.Location = new System.Drawing.Point(12, 65);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
-            this.errorLabel.TabIndex = 7;
+            this.errorLabel.TabIndex = 6;
             // 
             // label1
             // 
@@ -83,7 +83,7 @@ namespace csharpClient
             this.label1.Location = new System.Drawing.Point(128, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 17);
-            this.label1.TabIndex = 9;
+            this.label1.TabIndex = 7;
             this.label1.Text = "#";
             // 
             // idNoBox
@@ -91,14 +91,14 @@ namespace csharpClient
             this.idNoBox.Location = new System.Drawing.Point(140, 43);
             this.idNoBox.Name = "idNoBox";
             this.idNoBox.Size = new System.Drawing.Size(78, 20);
-            this.idNoBox.TabIndex = 10;
+            this.idNoBox.TabIndex = 3;
             // 
             // usernameBox
             // 
             this.usernameBox.Location = new System.Drawing.Point(12, 43);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(110, 20);
-            this.usernameBox.TabIndex = 11;
+            this.usernameBox.TabIndex = 2;
             // 
             // AddUserForm
             // 

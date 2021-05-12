@@ -44,7 +44,7 @@ namespace csharpClient
             this.sendButton.Location = new System.Drawing.Point(933, 646);
             this.sendButton.Name = "sendButton";
             this.sendButton.Size = new System.Drawing.Size(75, 23);
-            this.sendButton.TabIndex = 0;
+            this.sendButton.TabIndex = 3;
             this.sendButton.Text = "send";
             this.sendButton.UseVisualStyleBackColor = true;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
@@ -72,7 +72,7 @@ namespace csharpClient
             this.messageBox.Location = new System.Drawing.Point(13, 13);
             this.messageBox.Name = "messageBox";
             this.messageBox.Size = new System.Drawing.Size(995, 615);
-            this.messageBox.TabIndex = 3;
+            this.messageBox.TabIndex = 0;
             // 
             // radioGroupBox
             // 
