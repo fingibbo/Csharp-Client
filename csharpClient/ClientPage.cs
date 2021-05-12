@@ -14,6 +14,8 @@ namespace csharpClient
     public partial class ClientPage : Form
     {
         Connection con = new Connection();
+        int counter = 0;
+        private int maxCount = 3;
         private static System.Windows.Forms.Timer updateTimer = new System.Windows.Forms.Timer();
         private bool newGchat = false;
         private string[][] groupData;
@@ -24,8 +26,9 @@ namespace csharpClient
         {
             InitializeComponent();
             updateTimer.Tick += new EventHandler(updateCheck);
-            updateTimer.Interval = 1000;
+            updateTimer.Interval = 1500;
             updateTimer.Start();
+            groupSorter();
         }
 
         public void setUsername(string user)
@@ -35,7 +38,12 @@ namespace csharpClient
 
         private void updateCheck(object source, EventArgs e)
         {
-            groupSorter();
+            counter++;
+            if(counter == maxCount)
+            {
+                groupSorter();
+                counter = 0;
+            }
             msgSorter();
         }
 
@@ -110,7 +118,8 @@ namespace csharpClient
             if (((RadioButton)button).Checked)
             {
                 newGchat = true;
-                con.sendMessage("G" + ((RadioButton)button).Text.Split(new char[] { '.' })[0]);
+                con.sendMessage("G" + groupData[Int32.Parse(((RadioButton)button).Text.Split(new char[] { '.' })[0])-1][0]);
+                
             }
         }
 
