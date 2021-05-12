@@ -41,27 +41,28 @@ namespace csharpClient
             // 
             // sendButton
             // 
-            this.sendButton.Location = new System.Drawing.Point(933, 646);
+            this.sendButton.Location = new System.Drawing.Point(933, 634);
             this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.Size = new System.Drawing.Size(75, 40);
             this.sendButton.TabIndex = 3;
-            this.sendButton.Text = "send";
+            this.sendButton.Text = "Send";
             this.sendButton.UseVisualStyleBackColor = true;
             this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(1177, 646);
+            this.exitButton.Location = new System.Drawing.Point(1177, 634);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.Size = new System.Drawing.Size(75, 40);
             this.exitButton.TabIndex = 1;
-            this.exitButton.Text = "log out";
+            this.exitButton.Text = "Log Out";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // senderBox
             // 
             this.senderBox.Location = new System.Drawing.Point(13, 648);
+            this.senderBox.MaxLength = 150;
             this.senderBox.Name = "senderBox";
             this.senderBox.Size = new System.Drawing.Size(914, 20);
             this.senderBox.TabIndex = 2;
@@ -79,7 +80,7 @@ namespace csharpClient
             this.radioGroupBox.Location = new System.Drawing.Point(1014, 12);
             this.radioGroupBox.MaximumSize = new System.Drawing.Size(238, 537);
             this.radioGroupBox.Name = "radioGroupBox";
-            this.radioGroupBox.Size = new System.Drawing.Size(238, 537);
+            this.radioGroupBox.Size = new System.Drawing.Size(238, 509);
             this.radioGroupBox.TabIndex = 6;
             this.radioGroupBox.TabStop = false;
             // 
@@ -96,7 +97,7 @@ namespace csharpClient
             // makeGroupButton
             // 
             this.makeGroupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.makeGroupButton.Location = new System.Drawing.Point(1177, 555);
+            this.makeGroupButton.Location = new System.Drawing.Point(1177, 542);
             this.makeGroupButton.Name = "makeGroupButton";
             this.makeGroupButton.Size = new System.Drawing.Size(75, 40);
             this.makeGroupButton.TabIndex = 8;
@@ -106,7 +107,7 @@ namespace csharpClient
             // 
             // addUserButton
             // 
-            this.addUserButton.Location = new System.Drawing.Point(1177, 601);
+            this.addUserButton.Location = new System.Drawing.Point(1177, 588);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(75, 40);
             this.addUserButton.TabIndex = 9;

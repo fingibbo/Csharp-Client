@@ -96,6 +96,7 @@ namespace csharpClient
             // usernameBox
             // 
             this.usernameBox.Location = new System.Drawing.Point(12, 43);
+            this.usernameBox.MaxLength = 25;
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(110, 20);
             this.usernameBox.TabIndex = 2;

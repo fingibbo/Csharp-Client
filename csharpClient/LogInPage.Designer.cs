@@ -67,6 +67,7 @@ namespace csharpClient
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(17, 101);
+            this.usernameTextBox.MaxLength = 25;
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(273, 20);
             this.usernameTextBox.TabIndex = 5;
@@ -74,6 +75,7 @@ namespace csharpClient
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(17, 140);
+            this.passwordTextBox.MaxLength = 25;
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(273, 20);
@@ -82,6 +84,7 @@ namespace csharpClient
             // ipBox
             // 
             this.ipBox.Location = new System.Drawing.Point(17, 26);
+            this.ipBox.MaxLength = 25;
             this.ipBox.Name = "ipBox";
             this.ipBox.Size = new System.Drawing.Size(192, 20);
             this.ipBox.TabIndex = 8;
@@ -90,6 +93,7 @@ namespace csharpClient
             // portBox
             // 
             this.portBox.Location = new System.Drawing.Point(216, 26);
+            this.portBox.MaxLength = 8;
             this.portBox.Name = "portBox";
             this.portBox.Size = new System.Drawing.Size(74, 20);
             this.portBox.TabIndex = 9;
