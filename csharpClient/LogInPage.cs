@@ -99,7 +99,6 @@ namespace csharpClient
                     con.getMessage();
                     //sets socket connected bool to true
                     socketConnect = true;
-
                     //this disables the text box and button to enter IP and port if you have successfully connected to prevent errors
                     ipBox.Enabled = false;
                     portBox.Enabled = false;
