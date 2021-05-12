@@ -50,13 +50,24 @@ namespace csharpClient
         //sends messages
         public void sendMessage(string toSend)
         {
-            //converts the text to send to bytes
-            int toSendLen = System.Text.Encoding.ASCII.GetByteCount(toSend);
-            byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(toSend);
-            byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
-            //sends the message
-            clientSocket.Send(toSendLenBytes);
-            clientSocket.Send(toSendBytes);
+            //tenor since sending an apostraphe causes errors, it doesnt send one.
+            string temp = toSend;
+            string forSend = temp.Trim('\'');
+            if (temp == forSend)
+            {
+                //converts the text to send to bytes
+                int toSendLen = System.Text.Encoding.ASCII.GetByteCount(forSend);
+                byte[] toSendBytes = System.Text.Encoding.ASCII.GetBytes(forSend);
+                byte[] toSendLenBytes = System.BitConverter.GetBytes(toSendLen);
+                //sends the message
+                clientSocket.Send(toSendLenBytes);
+                clientSocket.Send(toSendBytes);
+            }
+            else
+            {
+
+            }
+
         }
 
         //gets messages from the server
