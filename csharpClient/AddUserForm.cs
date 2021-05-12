@@ -34,6 +34,10 @@ namespace csharpClient
                 idNoBox.Text = "";
                 usernameBox.Text = "";
             }
+            else
+            {
+                errorLabel.Text = "The username or ID is incorrect.";
+            }
         }
     }
 }

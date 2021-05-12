@@ -22,5 +22,10 @@ namespace csharpClient
         {
             this.Close();
         }
+
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            con.sendMessage("CGN" + groupNamerBox.Text);
+        }
     }
 }
