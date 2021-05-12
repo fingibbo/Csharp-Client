@@ -35,6 +35,8 @@ namespace csharpClient
             this.messageBox = new System.Windows.Forms.ListBox();
             this.radioGroupBox = new System.Windows.Forms.GroupBox();
             this.userIDLabel = new System.Windows.Forms.Label();
+            this.makeGroupButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // sendButton
@@ -85,17 +87,39 @@ namespace csharpClient
             // 
             this.userIDLabel.AutoSize = true;
             this.userIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.userIDLabel.Location = new System.Drawing.Point(1014, 611);
+            this.userIDLabel.Location = new System.Drawing.Point(1038, 626);
             this.userIDLabel.Name = "userIDLabel";
             this.userIDLabel.Size = new System.Drawing.Size(80, 17);
             this.userIDLabel.TabIndex = 7;
             this.userIDLabel.Text = "userIDHere";
+            // 
+            // makeGroupButton
+            // 
+            this.makeGroupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.makeGroupButton.Location = new System.Drawing.Point(1041, 646);
+            this.makeGroupButton.Name = "makeGroupButton";
+            this.makeGroupButton.Size = new System.Drawing.Size(104, 23);
+            this.makeGroupButton.TabIndex = 8;
+            this.makeGroupButton.Text = "Make Group Chat";
+            this.makeGroupButton.UseVisualStyleBackColor = true;
+            this.makeGroupButton.Click += new System.EventHandler(this.makeGroupButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1177, 601);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 39);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Add User to Group Chat";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ClientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.makeGroupButton);
             this.Controls.Add(this.userIDLabel);
             this.Controls.Add(this.radioGroupBox);
             this.Controls.Add(this.messageBox);
@@ -120,5 +144,7 @@ namespace csharpClient
         private System.Windows.Forms.ListBox messageBox;
         private System.Windows.Forms.GroupBox radioGroupBox;
         private System.Windows.Forms.Label userIDLabel;
+        private System.Windows.Forms.Button makeGroupButton;
+        private System.Windows.Forms.Button button1;
     }
 }

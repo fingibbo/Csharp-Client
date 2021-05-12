@@ -150,5 +150,10 @@ namespace csharpClient
             Application.Exit();
         }
 
+        private void makeGroupButton_Click(object sender, EventArgs e)
+        {
+            GroupMaker form = new GroupMaker();
+            form.Show();
+        }
     }
 }
