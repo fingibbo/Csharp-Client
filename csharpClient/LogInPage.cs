@@ -115,22 +115,43 @@ namespace csharpClient
 
         private void newUserButton_Click(object sender, EventArgs e)
         {
-            string tempUser;
-            string tempPass;
-            tempUser = con.noPunc(usernameTextBox.Text);
-            tempPass = con.noPunc(passwordTextBox.Text);
+            if (socketConnect == true)
+            {
+                string tempUser;
+                string tempPass;
+                tempUser = con.noPunc(usernameTextBox.Text);
+                tempPass = con.noPunc(passwordTextBox.Text);
 
-            if(usernameTextBox.Text != tempUser)
-            {
-                errorLabel.Text = "Username cannot contain symbols. Only Letters and Numbers.";
-            }
-            else if (passwordTextBox.Text != tempPass)
-            {
-                errorLabel.Text = "Password cannot contain symbols. Only Letters and Numbers.";
+                if (usernameTextBox.Text != tempUser)
+                {
+                    errorLabel.Text = "Username cannot contain symbols. Only Letters and Numbers.";
+                }
+                else if (passwordTextBox.Text != tempPass)
+                {
+                    errorLabel.Text = "Password cannot contain symbols. Only Letters and Numbers.";
+                }
+                else
+                {
+                    con.sendMessage("N" + usernameTextBox.Text + "-" + passwordTextBox.Text);
+                }
+                string response = con.getMessage();
+                int responseInt = Int32.Parse(response);
+                if (responseInt != -1)
+                {
+                    ClientPage form = new ClientPage();
+                    this.Hide();
+                    form.setUsername(usernameTextBox.Text + "#" + response);
+                    form.Show();
+                }
+                else
+                {
+                    errorLabel.Text = "Username is taken.";
+                }
+
             }
             else
             {
-                con.sendMessage("N" + usernameTextBox.Text + passwordTextBox.Text);
+                errorLabel.Text = "Not connected to a server";
             }
         }
     }
