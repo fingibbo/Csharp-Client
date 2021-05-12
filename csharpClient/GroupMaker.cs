@@ -25,7 +25,7 @@ namespace csharpClient
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            con.sendMessage("CGN" + groupNamerBox.Text);
+            con.sendMessage("C" + groupNamerBox.Text);
         }
     }
 }
