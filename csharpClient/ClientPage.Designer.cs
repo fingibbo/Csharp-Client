@@ -70,7 +70,6 @@ namespace csharpClient
             // 
             this.messageBox.FormattingEnabled = true;
             this.messageBox.Location = new System.Drawing.Point(13, 13);
-            this.messageBox.MultiColumn = true;
             this.messageBox.Name = "messageBox";
             this.messageBox.Size = new System.Drawing.Size(995, 615);
             this.messageBox.TabIndex = 3;
@@ -127,6 +126,8 @@ namespace csharpClient
             this.Controls.Add(this.senderBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.sendButton);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "ClientPage";
             this.Text = "Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientPage_FormClosing);

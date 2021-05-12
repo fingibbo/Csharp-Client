@@ -112,5 +112,26 @@ namespace csharpClient
 
             }
         }
+
+        private void newUserButton_Click(object sender, EventArgs e)
+        {
+            string tempUser;
+            string tempPass;
+            tempUser = con.noPunc(usernameTextBox.Text);
+            tempPass = con.noPunc(passwordTextBox.Text);
+
+            if(usernameTextBox.Text != tempUser)
+            {
+                errorLabel.Text = "Username cannot contain symbols. Only Letters and Numbers.";
+            }
+            else if (passwordTextBox.Text != tempPass)
+            {
+                errorLabel.Text = "Password cannot contain symbols. Only Letters and Numbers.";
+            }
+            else
+            {
+                con.sendMessage("N" + usernameTextBox.Text + passwordTextBox.Text);
+            }
+        }
     }
 }

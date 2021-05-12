@@ -18,21 +18,6 @@ namespace csharpClient
             InitializeComponent();
         }
 
-        private string noPunc(string name)
-        {
-            string groupName;
-            var sb = new StringBuilder();
-            
-            foreach (char c in name)
-            {
-                if (!char.IsPunctuation(c))
-                    sb.Append(c);
-            }
-
-            groupName = sb.ToString();
-            return groupName;
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -40,7 +25,8 @@ namespace csharpClient
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            con.sendMessage("C" + noPunc(groupNamerBox.Text));
+            con.sendMessage("C" + con.noPunc(groupNamerBox.Text));
+            this.Close();
         }
     }
 }

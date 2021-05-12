@@ -73,6 +73,20 @@ namespace csharpClient
             //prints message
             return rcv.Normalize();
         }
+        public string noPunc(string name)
+        {
+            string groupName;
+            var sb = new StringBuilder();
+
+            foreach (char c in name)
+            {
+                if (!char.IsPunctuation(c))
+                    sb.Append(c);
+            }
+
+            groupName = sb.ToString();
+            return groupName;
+        }
 
     }
 }

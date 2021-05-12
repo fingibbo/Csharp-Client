@@ -24,6 +24,7 @@ namespace csharpClient
         {
             InitializeComponent();
             updateTimer.Tick += new EventHandler(updateCheck);
+            updateTimer.Interval = 1000;
             updateTimer.Start();
         }
 
@@ -40,9 +41,18 @@ namespace csharpClient
 
         private void groupSorter()
         {
+            bool run = true;
             con.sendMessage("UGL");
             string response = con.getMessage();
-
+            if (Int32.TryParse(response, out int result))
+            {
+                if(result == -1)
+                {
+                    run = false;
+                }
+            }
+            if (run)
+            {
                 string[] data = ((string)response.Clone()).Split(new char[] { ':', ',' });
                 string[][] postData = new string[data.Length / 2][];
                 for (int i = 0; i < data.Length; i += 2)
@@ -63,9 +73,9 @@ namespace csharpClient
                     groupButtons[i].CheckedChanged += new EventHandler(groupButtons_CheckedChanged);
                 }
                 groupData = postData;
-            
+            }
 
-            
+
         }
         private void msgSorter()
         {
@@ -77,31 +87,22 @@ namespace csharpClient
             if (newGchat == true)
             {
                 messageBox.Items.Clear();
-                for (int i = 0; i < messagePrint.Length; i += 4)
-                {
-                    if (messagePrint.Length >= 4)
-                    {
-                        messageBox.Items.Add("-------------");
-                        messageBox.Items.Add(messagePrint[1 + i] + " || " + messagePrint[i]);
-                        messageBox.Items.Add(messagePrint[2 + i]);
-                        messageBox.Items.Add("");
-                    }
-                }
                 newGchat = false;
             }
-            else {
-
-                for (int i = 0; i < messagePrint.Length; i += 4)
+            for (int i = 0; i < messagePrint.Length; i += 4)
+            {
+                if (messagePrint.Length >= 4)
                 {
-                    if (messagePrint.Length >= 4)
-                    {
-                        messageBox.Items.Add("-------------");
-                        messageBox.Items.Add(messagePrint[1 + i] + " || " + messagePrint[i]);
-                        messageBox.Items.Add(messagePrint[2 + i]);
-                        messageBox.Items.Add("");
-                    }
+                    messageBox.Items.Add("______________________________________________________________________________________________________________________________________________________________________");
+                    messageBox.Items.Add("[ " + messagePrint[1 + i] + " ]      ||      " + messagePrint[i]);
+                    messageBox.Items.Add("");
+                    messageBox.Items.Add(messagePrint[2 + i]);
+                    messageBox.TopIndex = messageBox.Items.Count - 1;
                 }
             }
+
+
+
         }
 
         private void groupButtons_CheckedChanged(object button, EventArgs e)
@@ -109,7 +110,7 @@ namespace csharpClient
             if (((RadioButton)button).Checked)
             {
                 newGchat = true;
-                con.sendMessage("G"+((RadioButton)button).Text.Split(new char[] { '.' })[0]);
+                con.sendMessage("G" + ((RadioButton)button).Text.Split(new char[] { '.' })[0]);
             }
         }
 
@@ -119,7 +120,7 @@ namespace csharpClient
             {
 
             }
-            else 
+            else
             {
                 con.sendMessage("M" + senderBox.Text);
                 senderBox.Text = "";

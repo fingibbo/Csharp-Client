@@ -41,6 +41,7 @@ namespace csharpClient
             this.ipLabel = new System.Windows.Forms.Label();
             this.portLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.newUserButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // logInButton
@@ -74,6 +75,7 @@ namespace csharpClient
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(17, 140);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(273, 20);
             this.passwordTextBox.TabIndex = 6;
             // 
@@ -147,11 +149,22 @@ namespace csharpClient
             this.errorLabel.Size = new System.Drawing.Size(0, 13);
             this.errorLabel.TabIndex = 15;
             // 
+            // newUserButton
+            // 
+            this.newUserButton.Location = new System.Drawing.Point(98, 166);
+            this.newUserButton.Name = "newUserButton";
+            this.newUserButton.Size = new System.Drawing.Size(75, 25);
+            this.newUserButton.TabIndex = 16;
+            this.newUserButton.Text = "Create User";
+            this.newUserButton.UseVisualStyleBackColor = true;
+            this.newUserButton.Click += new System.EventHandler(this.newUserButton_Click);
+            // 
             // LogInPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 231);
+            this.Controls.Add(this.newUserButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.portLabel);
             this.Controls.Add(this.ipLabel);
@@ -186,6 +199,7 @@ namespace csharpClient
         private System.Windows.Forms.Label ipLabel;
         private System.Windows.Forms.Label portLabel;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Button newUserButton;
     }
 }
 
