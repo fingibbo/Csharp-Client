@@ -77,8 +77,9 @@ namespace csharpClient
             // radioGroupBox
             // 
             this.radioGroupBox.Location = new System.Drawing.Point(1014, 12);
+            this.radioGroupBox.MaximumSize = new System.Drawing.Size(238, 537);
             this.radioGroupBox.Name = "radioGroupBox";
-            this.radioGroupBox.Size = new System.Drawing.Size(238, 321);
+            this.radioGroupBox.Size = new System.Drawing.Size(238, 537);
             this.radioGroupBox.TabIndex = 6;
             this.radioGroupBox.TabStop = false;
             // 
@@ -86,7 +87,7 @@ namespace csharpClient
             // 
             this.userIDLabel.AutoSize = true;
             this.userIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.userIDLabel.Location = new System.Drawing.Point(1038, 626);
+            this.userIDLabel.Location = new System.Drawing.Point(1014, 649);
             this.userIDLabel.Name = "userIDLabel";
             this.userIDLabel.Size = new System.Drawing.Size(80, 17);
             this.userIDLabel.TabIndex = 7;
@@ -95,9 +96,9 @@ namespace csharpClient
             // makeGroupButton
             // 
             this.makeGroupButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.makeGroupButton.Location = new System.Drawing.Point(1041, 646);
+            this.makeGroupButton.Location = new System.Drawing.Point(1177, 555);
             this.makeGroupButton.Name = "makeGroupButton";
-            this.makeGroupButton.Size = new System.Drawing.Size(104, 23);
+            this.makeGroupButton.Size = new System.Drawing.Size(75, 40);
             this.makeGroupButton.TabIndex = 8;
             this.makeGroupButton.Text = "Make Group Chat";
             this.makeGroupButton.UseVisualStyleBackColor = true;
@@ -107,7 +108,7 @@ namespace csharpClient
             // 
             this.addUserButton.Location = new System.Drawing.Point(1177, 601);
             this.addUserButton.Name = "addUserButton";
-            this.addUserButton.Size = new System.Drawing.Size(75, 39);
+            this.addUserButton.Size = new System.Drawing.Size(75, 40);
             this.addUserButton.TabIndex = 9;
             this.addUserButton.Text = "Add User to Group Chat";
             this.addUserButton.UseVisualStyleBackColor = true;
