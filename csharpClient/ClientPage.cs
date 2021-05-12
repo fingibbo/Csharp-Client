@@ -155,5 +155,11 @@ namespace csharpClient
             GroupMaker form = new GroupMaker();
             form.Show();
         }
+
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            AddUserForm form = new AddUserForm();
+            form.Show();
+        }
     }
 }

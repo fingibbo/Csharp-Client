@@ -36,7 +36,7 @@ namespace csharpClient
             this.radioGroupBox = new System.Windows.Forms.GroupBox();
             this.userIDLabel = new System.Windows.Forms.Label();
             this.makeGroupButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addUserButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // sendButton
@@ -104,21 +104,22 @@ namespace csharpClient
             this.makeGroupButton.UseVisualStyleBackColor = true;
             this.makeGroupButton.Click += new System.EventHandler(this.makeGroupButton_Click);
             // 
-            // button1
+            // addUserButton
             // 
-            this.button1.Location = new System.Drawing.Point(1177, 601);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 39);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Add User to Group Chat";
-            this.button1.UseVisualStyleBackColor = true;
+            this.addUserButton.Location = new System.Drawing.Point(1177, 601);
+            this.addUserButton.Name = "addUserButton";
+            this.addUserButton.Size = new System.Drawing.Size(75, 39);
+            this.addUserButton.TabIndex = 9;
+            this.addUserButton.Text = "Add User to Group Chat";
+            this.addUserButton.UseVisualStyleBackColor = true;
+            this.addUserButton.Click += new System.EventHandler(this.addUserButton_Click);
             // 
             // ClientPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.addUserButton);
             this.Controls.Add(this.makeGroupButton);
             this.Controls.Add(this.userIDLabel);
             this.Controls.Add(this.radioGroupBox);
@@ -145,6 +146,6 @@ namespace csharpClient
         private System.Windows.Forms.GroupBox radioGroupBox;
         private System.Windows.Forms.Label userIDLabel;
         private System.Windows.Forms.Button makeGroupButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addUserButton;
     }
 }
