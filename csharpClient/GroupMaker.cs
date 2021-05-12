@@ -25,8 +25,15 @@ namespace csharpClient
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            con.sendMessage("C" + con.noPunc(groupNamerBox.Text));
-            this.Close();
+            if (groupNamerBox.Text.Trim() != "")
+            {
+                con.sendMessage("C" + con.noPunc(groupNamerBox.Text));
+                this.Close();
+            }
+            else 
+            {
+                errorLabel.Text = "Please enter a group name.";
+            }
         }
     }
 }

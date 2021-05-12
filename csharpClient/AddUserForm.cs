@@ -18,17 +18,24 @@ namespace csharpClient
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            con.sendMessage("V" + idNoBox.Text + "-" +usernameBox.Text);
-            int response = Int32.Parse(con.getMessage());
-            if (response == 1)
+            if (idNoBox.Text.Trim() != "" && usernameBox.Text.Trim() != "") 
             {
-                con.sendMessage("A" + idNoBox.Text);
-                idNoBox.Text = "";
-                usernameBox.Text = "";
+                con.sendMessage("V" + idNoBox.Text + "-" + usernameBox.Text);
+                int response = Int32.Parse(con.getMessage());
+                if (response == 1)
+                {
+                    con.sendMessage("A" + idNoBox.Text);
+                    idNoBox.Text = "";
+                    usernameBox.Text = "";
+                }
+                else
+                {
+                    errorLabel.Text = "The username or ID is incorrect.";
+                }
             }
             else
             {
-                errorLabel.Text = "The username or ID is incorrect.";
+                errorLabel.Text = "Please enter a username and ID.";
             }
         }
     }
