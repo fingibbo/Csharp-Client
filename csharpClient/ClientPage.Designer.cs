@@ -132,7 +132,6 @@ namespace csharpClient
             this.Text = "Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClientPage_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ClientPage_FormClosed);
-            this.Load += new System.EventHandler(this.ClientPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

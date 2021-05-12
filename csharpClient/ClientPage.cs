@@ -136,11 +136,6 @@ namespace csharpClient
             form.Show();
         }
 
-        private void ClientPage_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ClientPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
